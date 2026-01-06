@@ -21,7 +21,7 @@ public class SalaryInfo {
         for (String person : data) {
             for (String actualName : names) {
                 String[] devidedData = person.split(" ");
-                actualDate = LocalDate.parse(devidedData[day]);
+                actualDate = LocalDate.parse(devidedData[day], formatter);
 
                 if (actualDate.isBefore(dtTo) || actualDate.isEqual(dtTo)
                         && actualDate.isAfter(dtFrom) || actualDate.isEqual(dtFrom)) {
