@@ -19,20 +19,20 @@ public class SalaryInfo {
         result.append("Report for period ").append(dateFrom)
                 .append(" - ").append(dateTo).append(System.lineSeparator());
         for (String person : data) {
-                String[] devidedData = person.split(" ");
-                actualDate = LocalDate.parse(devidedData[day], formatter);
+            String[] devidedData = person.split(" ");
+            actualDate = LocalDate.parse(devidedData[day], formatter);
 
-                if (!actualDate.isBefore(dtFrom) && !actualDate.isAfter(dtTo)) {
-                    String employee = devidedData[name];
-                    int earned = Integer.parseInt(devidedData[hours])
-                            * Integer.parseInt(devidedData[amount]);
-                    for (int i = 0; i < names.length; i++) {
-                        if (employee.equals(names[i])) {
-                            totals[i] += earned;
-                            break;
-                        }
+            if (!actualDate.isBefore(dtFrom) && !actualDate.isAfter(dtTo)) {
+                String employee = devidedData[name];
+                int earned = Integer.parseInt(devidedData[hours])
+                        * Integer.parseInt(devidedData[amount]);
+                for (int i = 0; i < names.length; i++) {
+                    if (employee.equals(names[i])) {
+                        totals[i] += earned;
+                        break;
                     }
                 }
+            }
         }
         for (int i = 0; i < names.length; i++) {
             result.append(names[i]).append(" - ");
